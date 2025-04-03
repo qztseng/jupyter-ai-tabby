@@ -1,0 +1,1 @@
+a completer model is selected but the inline completion provider is not enabled in the settings

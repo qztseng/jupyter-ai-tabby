@@ -1,0 +1,5 @@
+[jupyter_ai.chat_handlers]
+test-slash-command = jupyter_ai_tabby.slash_command:TestSlashCommand
+
+[jupyter_ai.model_providers]
+test-provider = jupyter_ai_tabby.provider:TestProvider

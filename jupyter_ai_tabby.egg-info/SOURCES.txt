@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+jupyter_ai_tabby/__init__.py
+jupyter_ai_tabby/_version.py
+jupyter_ai_tabby/llm.py
+jupyter_ai_tabby/provider.py
+jupyter_ai_tabby/slash_command.py
+jupyter_ai_tabby.egg-info/PKG-INFO
+jupyter_ai_tabby.egg-info/SOURCES.txt
+jupyter_ai_tabby.egg-info/dependency_links.txt
+jupyter_ai_tabby.egg-info/entry_points.txt
+jupyter_ai_tabby.egg-info/requires.txt
+jupyter_ai_tabby.egg-info/top_level.txt
+jupyter_ai_tabby/tests/__init__.py

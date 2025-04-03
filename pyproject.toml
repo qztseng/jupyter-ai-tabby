@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.4.0", "jupyterlab~=4.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyter_ai_tabby"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+version = "0.1.0"
+description = "A Jupyter AI extension for TabbyML."
+authors = [
+    { name = "qztseng", email = "qztseng@gmail.com" },
+]
+dependencies = ["jupyter_ai"]
+
+[project.optional-dependencies]
+test = ["coverage", "pytest", "pytest-asyncio", "pytest-cov"]
+
+[project.entry-points."jupyter_ai.model_providers"]
+tabby-provider = "jupyter_ai_tabby:TabbyProvider"
+
+# Commented out since the slash command is not implemented
+# [project.entry-points."jupyter_ai.chat_handlers"]
+# tabby-slash-command = "jupyter_ai_tabby.slash_command:TabbySlashCommand"
+
+[tool.hatch.build.hooks.version]
+path = "jupyter_ai_tabby/_version.py"
+
+[tool.check-wheel-contents]
+ignore = ["W002"]

@@ -1,0 +1,114 @@
+Metadata-Version: 2.4
+Name: jupyter_ai_tabby
+Version: 0.1.0
+Summary: A Jupyter AI extension.
+Author-email: qztseng <qztseng@gmail.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2025, qztseng
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 4
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jupyter_ai
+Provides-Extra: test
+Requires-Dist: coverage; extra == "test"
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-asyncio; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Dynamic: license-file
+
+# jupyter_ai_tabby
+
+`jupyter_ai_tabby` is a Jupyter AI module, a package
+that registers additional model providers and slash commands for the Jupyter AI
+extension.
+
+## Requirements
+
+- Python 3.9 - 3.12
+- JupyterLab 4
+
+## Install
+
+To install the extension, execute:
+
+```bash
+pip install jupyter_ai_tabby
+```
+
+## Uninstall
+
+To remove the extension, execute:
+
+```bash
+pip uninstall jupyter_ai_tabby
+```
+
+## Contributing
+
+### Development install
+
+```bash
+cd jupyter-ai-tabby
+pip install -e "."
+```
+
+### Development uninstall
+
+```bash
+pip uninstall jupyter_ai_tabby
+```
+
+#### Backend tests
+
+This package uses [Pytest](https://docs.pytest.org/) for Python testing.
+
+Install test dependencies (needed only once):
+
+```sh
+cd jupyter-ai-tabby
+pip install -e ".[test]"
+```
+
+To execute them, run:
+
+```sh
+pytest -vv -r ap --cov jupyter_ai_tabby
+```

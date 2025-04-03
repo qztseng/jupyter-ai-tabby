@@ -1,0 +1,7 @@
+jupyter_ai
+
+[test]
+coverage
+pytest
+pytest-asyncio
+pytest-cov
