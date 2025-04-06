@@ -1,7 +1,7 @@
 # jupyter_ai_tabby
 
 `jupyter_ai_tabby` is a Jupyter AI module, a package
-that registers additional model providers and slash commands for the Jupyter AI
+that registers Tabby (https://www.tabbyml.com/) as additional chat&completion provider for the Jupyter AI
 extension.
 
 ## Requirements
@@ -14,7 +14,7 @@ extension.
 To install the extension, execute:
 
 ```bash
-pip install jupyter_ai_tabby
+pip install git+https://github.com/qztseng/jupyter-ai-tabby.git
 ```
 
 ## Uninstall
@@ -22,37 +22,6 @@ pip install jupyter_ai_tabby
 To remove the extension, execute:
 
 ```bash
-pip uninstall jupyter_ai_tabby
+pip uninstall jupyter-ai-tabby
 ```
 
-## Contributing
-
-### Development install
-
-```bash
-cd jupyter-ai-tabby
-pip install -e "."
-```
-
-### Development uninstall
-
-```bash
-pip uninstall jupyter_ai_tabby
-```
-
-#### Backend tests
-
-This package uses [Pytest](https://docs.pytest.org/) for Python testing.
-
-Install test dependencies (needed only once):
-
-```sh
-cd jupyter-ai-tabby
-pip install -e ".[test]"
-```
-
-To execute them, run:
-
-```sh
-pytest -vv -r ap --cov jupyter_ai_tabby
-```
