@@ -8,6 +8,7 @@ class TabbyLLM(LLM):
     model_id: str
     url: str
     api_key: Optional[str] = None
+    max_length: int
 
     @property
     def _llm_type(self) -> str:
@@ -35,7 +36,6 @@ class TabbyLLM(LLM):
         else:
             return "Error: api key for tabby is not set!"
         response = requests.post(url, headers=headers, data=payload)
-        
         if response.status_code == 200:
             return response.json().get("choices", [{}])[0].get("text", "")
         else:
