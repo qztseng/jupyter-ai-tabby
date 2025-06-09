@@ -72,17 +72,20 @@ class TabbyProvider(BaseProvider, TabbyLLM):
         prefix = "\n\n".join(before)
         suffix = "\n\n".join(after)
         
-        prefix = self._truncate_context(prefix.strip(), self.max_length)
-        suffix = self._truncate_context(suffix.strip(), self.max_length//3)
-        
+        prefix = self._truncate_context(prefix.strip(), self.max_length, from_start=True)
+        suffix = self._truncate_context(suffix.strip(), self.max_length//3, from_start=False)
+
         return prefix, suffix
 
+    def _truncate_context(self, text: str, max_lines: int, from_start: bool = False) -> str:
+        lines = text.splitlines()
+        if from_start:
+            # Keep the last `max_lines` lines (truncate from the beginning)
+            return "\n".join(lines[-max_lines:])
+        else:
+            # Keep the first `max_lines` lines (truncate from the end)
+            return "\n".join(lines[:max_lines])
 
-    def _truncate_context(self, text: str, max_length: int) -> str:
-        """Truncate the input text to the specified maximum length."""
-        if len(text) <= max_length:
-            return text
-        return text[:max_length]
 
     async def generate_inline_completions(self, request: InlineCompletionRequest):
         prefix, suffix = await self._get_prefix_and_suffix(request)
