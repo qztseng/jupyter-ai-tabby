@@ -8,7 +8,8 @@ class TabbyLLM(LLM):
     model_id: str
     url: str
     api_key: Optional[str] = None
-    max_length: int
+    prefix_context_length: int
+    suffix_context_length: int
 
     @property
     def _llm_type(self) -> str:

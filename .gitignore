@@ -4,3 +4,9 @@
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
+# Python cache
+__pycache__/
+*.pyc
+
+# Hatchling version file
+jupyter_ai_tabby/_version.py

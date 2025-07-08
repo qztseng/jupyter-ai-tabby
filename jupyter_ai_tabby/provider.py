@@ -15,22 +15,20 @@ class TabbyProvider(BaseProvider, TabbyLLM):
     pypi_package_deps: ClassVar[List[str]] = ["requests"]
     auth_strategy = EnvAuthStrategy(name="TABBY_API_KEY", keyword_param="api_key")
     registry: ClassVar[bool] = False
+
     fields: ClassVar[List[Field]] = [
         TextField(key="url", label="URL", required=True, format="text"),
-        TextField(key="max_length",label="Maximum Context Length",format="text")
-    ] 
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        try:
-            self.max_length = int(kwargs.get("max_length", 500))  
-        except ValueError:
-            raise ValueError("max_length must be an integer.")
-
-        # Ensure max_length is a positive number
-        if self.max_length <= 0:
-            raise ValueError("max_length must be a positive integer.")
-
+        IntegerField(
+            key="prefix_context_length",
+            label="Prefix Context Length",
+            default=500,
+        ),
+        IntegerField(
+            key="suffix_context_length",
+            label="Suffix Context Length",
+            default=200,
+        ),
+    ]
 
     async def _get_prefix_and_suffix(self, request: InlineCompletionRequest):
         prefix = request.prefix
@@ -72,8 +70,8 @@ class TabbyProvider(BaseProvider, TabbyLLM):
         prefix = "\n\n".join(before)
         suffix = "\n\n".join(after)
         
-        prefix = self._truncate_context(prefix.strip(), self.max_length, from_start=True)
-        suffix = self._truncate_context(suffix.strip(), self.max_length//3, from_start=False)
+        prefix = self._truncate_context(prefix.strip(), self.prefix_context_length, from_start=True)
+        suffix = self._truncate_context(suffix.strip(), self.suffix_context_length, from_start=False)
 
         return prefix, suffix
 
