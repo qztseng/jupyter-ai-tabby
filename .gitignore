@@ -3,6 +3,7 @@
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+.jupyter_ystore.db
 
 # Python cache
 __pycache__/
